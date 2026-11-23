@@ -1,6 +1,5 @@
 import React from 'react';
 import {
-  ArrowUp,
   BadgeCheck,
   Camera,
   CheckCircle2,
@@ -8,15 +7,16 @@ import {
   Clock,
   Cpu,
   Handshake,
+  HelpCircle,
   Home,
   Lock,
+  Phone,
   PhoneCall,
   PhoneOff,
   QrCode,
   Radio,
   Receipt,
   ScanFace,
-  ShieldAlert,
   ShieldCheck,
   Signal,
   Smartphone,
@@ -24,7 +24,6 @@ import {
   UserCheck,
   Wallet,
   Wifi,
-  WifiOff,
 } from 'lucide-react';
 
 interface PlanItem {
@@ -101,43 +100,21 @@ const STEP_ANCHORS = [
   { id: 'etapa-5', label: '5', icon: ScanFace },
 ];
 
-function FederalEmblem({ className = 'w-9 h-9' }: { className?: string }) {
+function PhoneWithXIcon({ className = 'w-5 h-5' }: { className?: string }) {
   return (
     <svg
-      viewBox="0 0 40 40"
+      viewBox="0 0 24 24"
       fill="none"
-      xmlns="http://www.w3.org/2000/svg"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       className={className}
       aria-hidden="true"
     >
-      <rect width="40" height="40" rx="10" fill="url(#fed-grad)" />
-      <path
-        d="M20 7L30 11.5V19.5C30 25.8 25.7 31.3 20 33C14.3 31.3 10 25.8 10 19.5V11.5L20 7Z"
-        stroke="white"
-        strokeOpacity="0.9"
-        strokeWidth="1.75"
-        fill="white"
-        fillOpacity="0.08"
-      />
-      <path
-        d="M15.5 20.5C16.8 18.7 18.3 17.8 20 17.8C21.7 17.8 23.2 18.7 24.5 20.5"
-        stroke="white"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-      />
-      <path
-        d="M13 17.3C14.9 14.9 17.3 13.7 20 13.7C22.7 13.7 25.1 14.9 27 17.3"
-        stroke="#93C5FD"
-        strokeWidth="1.75"
-        strokeLinecap="round"
-      />
-      <circle cx="20" cy="24" r="2" fill="white" />
-      <defs>
-        <linearGradient id="fed-grad" x1="0" y1="0" x2="40" y2="40" gradientUnits="userSpaceOnUse">
-          <stop stopColor="#0B1F3A" />
-          <stop offset="1" stopColor="#1D4ED8" />
-        </linearGradient>
-      </defs>
+      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+      <path d="M16 3l5 5" />
+      <path d="M21 3l-5 5" />
     </svg>
   );
 }
@@ -205,45 +182,8 @@ export default function App() {
     }
   };
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
     <div className="min-h-screen flex flex-col bg-[#F4F7FB] text-slate-900">
-      {/* Top Bar */}
-      <header className="sticky top-0 z-40 border-b border-slate-200/90 bg-white/95 backdrop-blur-md">
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-          <button
-            type="button"
-            onClick={scrollToTop}
-            className="flex items-center gap-3 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 rounded-lg py-1 pr-2 cursor-pointer"
-          >
-            <FederalEmblem className="h-9 w-9 shrink-0" />
-            <span className="font-display text-base sm:text-lg font-bold tracking-tight text-[#0B1F3A] whitespace-nowrap shrink-0">
-              Federal Associados
-            </span>
-          </button>
-
-          <nav aria-label="Etapas" className="flex items-center gap-1.5 sm:gap-2">
-            {STEP_ANCHORS.map((step) => {
-              const Icon = step.icon;
-              return (
-                <button
-                  key={step.id}
-                  type="button"
-                  onClick={() => scrollToSection(step.id)}
-                  className="inline-flex h-10 min-w-[40px] items-center justify-center gap-1.5 rounded-lg border border-slate-200 bg-slate-50/80 px-2.5 text-sm font-bold text-[#0E2B52] transition-colors duration-150 hover:border-blue-300 hover:bg-blue-50 hover:text-blue-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 cursor-pointer tabular-nums"
-                >
-                  <Icon className="hidden sm:block h-3.5 w-3.5 text-blue-700" aria-hidden="true" />
-                  <span>{step.label}</span>
-                </button>
-              );
-            })}
-          </nav>
-        </div>
-      </header>
-
       {/* Main Content */}
       <main className="mx-auto w-full max-w-6xl flex-1 px-4 py-8 sm:px-6 sm:py-10 lg:px-8 lg:py-12 space-y-12 sm:space-y-16">
         {/* Hero Title Card */}
@@ -399,7 +339,7 @@ export default function App() {
                     🟢 PLANOS COM LIGAÇÃO
                   </h4>
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-100 text-emerald-700">
-                    <Wifi className="h-5 w-5" aria-hidden="true" />
+                    <Phone className="h-5 w-5" aria-hidden="true" />
                   </div>
                 </div>
                 <p className="text-[15.5px] sm:text-base leading-relaxed text-slate-700">
@@ -414,24 +354,12 @@ export default function App() {
                     🔵 PLANOS SEM LIGAÇÃO
                   </h4>
                   <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-sky-100 text-sky-700">
-                    <WifiOff className="h-5 w-5" aria-hidden="true" />
+                    <PhoneWithXIcon className="h-5 w-5" />
                   </div>
                 </div>
                 <p className="text-[15.5px] sm:text-base leading-relaxed text-slate-700">
                   Ao consumir 100% da franquia de um plano sem ligação, o acesso à internet será interrompido completamente até a renovação do plano. Para voltar a navegar, será necessário aguardar o próximo ciclo de renovação.
                 </p>
-              </div>
-            </div>
-
-            {/* Direct Comparison Summary Strip */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="flex items-center gap-3 rounded-xl border border-emerald-200 bg-emerald-100/70 px-5 py-4 text-[15.5px] sm:text-base font-bold text-emerald-950">
-                <CheckCircle2 className="h-5 w-5 shrink-0 text-emerald-700" aria-hidden="true" />
-                <span>✅ Com ligação: continua navegando com velocidade reduzida.</span>
-              </div>
-              <div className="flex items-center gap-3 rounded-xl border border-rose-200 bg-rose-50/90 px-5 py-4 text-[15.5px] sm:text-base font-bold text-rose-950">
-                <ShieldAlert className="h-5 w-5 shrink-0 text-rose-600" aria-hidden="true" />
-                <span>❌ Sem ligação: a internet fica bloqueada até a renovação.</span>
               </div>
             </div>
           </div>
@@ -587,28 +515,60 @@ export default function App() {
             </h2>
           </article>
         </section>
-      </main>
 
-      {/* Quiet Visual Footer */}
-      <footer className="border-t border-slate-200/90 bg-white">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-6 sm:px-6 lg:px-8">
-          <div className="flex items-center gap-3">
-            <FederalEmblem className="h-8 w-8 shrink-0" />
-            <span className="font-display text-sm font-bold text-[#0B1F3A]">
-              Federal Associados
-            </span>
+        {/* FAQ */}
+        <section className="rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-8 lg:p-10 shadow-sm space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 pb-4 border-b border-slate-100">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#0B1F3A] to-[#1D4ED8] text-white shadow-xs">
+              <HelpCircle className="h-6 w-6" aria-hidden="true" />
+            </div>
+            <h2 className="font-display text-lg sm:text-xl font-extrabold tracking-tight text-[#0B1F3A]">
+              ESCLARECENDO ALGUMAS DAS DÚVIDAS MAIS FREQUENTES
+            </h2>
           </div>
 
-          <button
-            type="button"
-            onClick={scrollToTop}
-            aria-label="Voltar ao topo"
-            className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-700 transition-colors duration-150 hover:border-blue-300 hover:bg-blue-50 hover:text-[#0B1F3A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-700 cursor-pointer"
-          >
-            <ArrowUp className="h-4 w-4" aria-hidden="true" />
-          </button>
-        </div>
-      </footer>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
+            <article className="flex flex-col gap-3 rounded-2xl border border-slate-200/90 bg-slate-50/65 p-6">
+              <h3 className="font-display text-base sm:text-lg font-bold text-[#0B1F3A]">
+                1. A FEDERAL FAZ PORTABILIDADE?
+              </h3>
+              <p className="text-[15.5px] sm:text-base leading-relaxed text-slate-800">
+                ❌ Não faz portabilidade.
+              </p>
+              <p className="text-[15.5px] sm:text-base leading-relaxed text-slate-800">
+                ✅ Ao contratar um plano, você recebe um novo número.
+              </p>
+            </article>
+
+            <article className="flex flex-col gap-3 rounded-2xl border border-slate-200/90 bg-slate-50/65 p-6">
+              <h3 className="font-display text-base sm:text-lg font-bold text-[#0B1F3A]">
+                2. QUAL O PRAZO DE ENVIO DO CHIP?
+              </h3>
+              <p className="text-[15.5px] sm:text-base leading-relaxed text-slate-800">
+                ✅ Pode levar de 5 a 15 dias para chegar em sua casa.
+              </p>
+            </article>
+
+            <article className="flex flex-col gap-3 rounded-2xl border border-slate-200/90 bg-slate-50/65 p-6">
+              <h3 className="font-display text-base sm:text-lg font-bold text-[#0B1F3A]">
+                3. TEM ALGUMA GARANTIA?
+              </h3>
+              <p className="text-[15.5px] sm:text-base leading-relaxed text-slate-800">
+                ✅ Sim, você tem 7 dias de garantia. Se não gostar, terá a sua adesão associativa devolvida sem problema nenhum.
+              </p>
+            </article>
+
+            <article className="flex flex-col gap-3 rounded-2xl border border-slate-200/90 bg-slate-50/65 p-6">
+              <h3 className="font-display text-base sm:text-lg font-bold text-[#0B1F3A]">
+                4. TEM FIDELIDADE?
+              </h3>
+              <p className="text-[15.5px] sm:text-base leading-relaxed text-slate-800">
+                ✅ Não tem.
+              </p>
+            </article>
+          </div>
+        </section>
+      </main>
     </div>
   );
 }
