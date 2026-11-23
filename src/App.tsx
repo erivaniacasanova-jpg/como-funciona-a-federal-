@@ -5,7 +5,6 @@ import {
   CheckCircle2,
   ClipboardCheck,
   Clock,
-  Cpu,
   Handshake,
   HelpCircle,
   Home,
@@ -167,13 +166,6 @@ function EsimIllustration() {
 }
 
 export default function App() {
-  const scrollToSection = (id: string) => {
-    const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  };
-
   return (
     <div className="min-h-screen flex flex-col bg-[#F4F7FB] text-slate-900">
       {/* Main Content */}
@@ -202,39 +194,13 @@ export default function App() {
             aria-hidden="true"
           />
 
-          <div className="relative z-10 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8">
-            <div className="max-w-3xl">
-              <h1
-                className="font-display font-extrabold tracking-tight text-white leading-[1.15] text-balance"
-                style={{ fontSize: 'clamp(1.85rem, 3.8vw, 3.25rem)' }}
-              >
-                Contratar sua internet com a Federal Associados é bem simples!
-              </h1>
-            </div>
-
-            {/* Pure visual 5-step anchor path */}
-            <div className="flex items-center gap-2.5 sm:gap-3 self-start lg:self-center rounded-2xl border border-white/15 bg-white/10 p-3 backdrop-blur-sm">
-              {STEP_ANCHORS.map((step, index) => {
-                const Icon = step.icon;
-                return (
-                  <React.Fragment key={step.id}>
-                    <button
-                      type="button"
-                      onClick={() => scrollToSection(step.id)}
-                      className="group flex h-11 w-11 sm:h-12 sm:w-12 flex-col items-center justify-center rounded-xl bg-white/10 border border-white/15 text-white transition-transform duration-150 hover:-translate-y-0.5 hover:bg-white hover:text-[#0B1F3A] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white cursor-pointer"
-                    >
-                      <Icon className="h-4 w-4 mb-0.5" aria-hidden="true" />
-                      <span className="text-[11px] font-bold leading-none tabular-nums">
-                        {step.label}
-                      </span>
-                    </button>
-                    {index < STEP_ANCHORS.length - 1 && (
-                      <span className="hidden sm:block h-px w-2.5 bg-white/25" aria-hidden="true" />
-                    )}
-                  </React.Fragment>
-                );
-              })}
-            </div>
+          <div className="relative z-10 max-w-4xl">
+            <h1
+              className="font-display font-extrabold tracking-tight text-white leading-[1.15] text-balance"
+              style={{ fontSize: 'clamp(1.85rem, 3.8vw, 3.25rem)' }}
+            >
+              Contratar sua internet com a Federal Associados é bem simples!
+            </h1>
           </div>
         </section>
 
