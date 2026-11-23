@@ -92,14 +92,6 @@ const CARRIERS: CarrierConfig[] = [
   },
 ];
 
-const STEP_ANCHORS = [
-  { id: 'etapa-1', label: '1', icon: Wifi },
-  { id: 'etapa-2', label: '2', icon: Cpu },
-  { id: 'etapa-3', label: '3', icon: UserCheck },
-  { id: 'etapa-4', label: '4', icon: Handshake },
-  { id: 'etapa-5', label: '5', icon: ScanFace },
-];
-
 function PhoneWithXIcon({ className = 'w-5 h-5' }: { className?: string }) {
   return (
     <svg
