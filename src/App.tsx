@@ -511,7 +511,7 @@ export default function App() {
             </div>
 
             <h2 className="font-display text-lg sm:text-xl font-bold tracking-tight text-white leading-relaxed">
-              5. Aguarde a ativação da sua linha: Prazo máximo para ativação em até 24h úteis.
+              6. Aguarde a ativação da sua linha: Prazo máximo para ativação em até 24h úteis.
             </h2>
           </article>
         </section>
