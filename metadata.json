@@ -1,0 +1,6 @@
+{
+  "name": "Federal Associados - Como Contratar",
+  "description": "Apresentação explicativa das etapas para contratar sua internet com a Federal Associados.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
