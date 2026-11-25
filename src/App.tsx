@@ -5,9 +5,11 @@ import {
   CheckCircle2,
   ClipboardCheck,
   Clock,
+  FileCheck,
   Handshake,
   HelpCircle,
   Home,
+  Link2,
   Lock,
   Phone,
   PhoneCall,
@@ -21,6 +23,7 @@ import {
   Smartphone,
   Truck,
   UserCheck,
+  Users,
   Wallet,
   Wifi,
 } from 'lucide-react';
@@ -472,6 +475,56 @@ export default function App() {
               6. Aguarde a ativação da sua linha: Prazo máximo para ativação em até 24h úteis.
             </h2>
           </article>
+        </section>
+
+        {/* STEP 7 */}
+        <section id="etapa-7" className="scroll-mt-24 rounded-3xl border border-slate-200/90 bg-white p-6 sm:p-8 lg:p-10 shadow-sm space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-5 pb-4 border-b border-slate-100">
+            <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-gradient-to-br from-[#0B1F3A] to-[#1D4ED8] text-white shadow-xs">
+              <Users className="h-7 w-7" aria-hidden="true" />
+            </div>
+            <h2 className="font-display text-xl sm:text-2xl font-bold tracking-tight text-[#0B1F3A] leading-snug text-balance">
+              7. Quem pode se associar?
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
+            <article className="flex flex-col gap-3 rounded-2xl border border-slate-200/90 bg-slate-50/65 p-6">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 border border-blue-200 text-[#1D4ED8]">
+                <Link2 className="h-5 w-5" aria-hidden="true" />
+              </div>
+              <h3 className="font-display text-base sm:text-lg font-bold text-[#0B1F3A]">
+                ✓ A entrada é exclusiva para convidados
+              </h3>
+              <p className="text-[15.5px] sm:text-base leading-relaxed text-slate-700">
+                Sem o link de indicação de um associado ativo, o cadastro não abre.
+              </p>
+            </article>
+
+            <article className="flex flex-col gap-3 rounded-2xl border border-slate-200/90 bg-slate-50/65 p-6">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 border border-blue-200 text-[#1D4ED8]">
+                <FileCheck className="h-5 w-5" aria-hidden="true" />
+              </div>
+              <h3 className="font-display text-base sm:text-lg font-bold text-[#0B1F3A]">
+                ✓ Maior de 18 anos, com CPF regular
+              </h3>
+              <p className="text-[15.5px] sm:text-base leading-relaxed text-slate-700">
+                O CPF precisa ser válido e ainda não cadastrado na Federal Associados. Ele é conferido no momento do preenchimento dos dados.
+              </p>
+            </article>
+
+            <article className="flex flex-col gap-3 rounded-2xl border border-slate-200/90 bg-slate-50/65 p-6">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700">
+                <ShieldCheck className="h-5 w-5" aria-hidden="true" />
+              </div>
+              <h3 className="font-display text-base sm:text-lg font-bold text-[#0B1F3A]">
+                ✓ Sem pendências com a associação
+              </h3>
+              <p className="text-[15.5px] sm:text-base leading-relaxed text-slate-700">
+                Não há consulta a SPC ou Serasa. O que pode impedir o cadastro é dívida em aberto com a própria Federal Associados.
+              </p>
+            </article>
+          </div>
         </section>
 
         {/* FAQ */}
